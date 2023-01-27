@@ -25,8 +25,8 @@ const Footer = () => {
         </p>
         <p>
           <Link to="/" className="hover:text-white">
-            Turkey Visa
-          </Link>{" "}
+            Syrian Visa
+          </Link>
           - Online Application System
         </p>
       </div>
