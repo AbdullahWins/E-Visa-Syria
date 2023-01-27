@@ -12,7 +12,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const uri = `mongodb+srv://gameCheap_user:${process.env.DB_PASSWORD}@gamecheap.c6qi1ej.mongodb.net/?retryWrites=true&w=majority`;
+const uri = `mongodb+srv://admin_syrianvisa:SEA0B5PXJ8vFtd3H@syrianevisa.7oqloil.mongodb.net/?retryWrites=true&w=majority`;
 
 const client = new MongoClient(uri, {
   useNewUrlParser: true,
@@ -22,24 +22,26 @@ const client = new MongoClient(uri, {
 
 async function run() {
   try {
-    const usersCollection = client.db("gameCheap").collection("users");
-    const productsCollection = client.db("gameCheap").collection("products");
-    const paymentsCollection = client.db("gameCheap").collection("payments");
+    const applicationsCollection = client
+      .db("syrianevisa")
+      .collection("applications");
 
-
+    app.get("/subCategory/:subCategoryName", async (req, res) => {
+      const subCategoryName = req.params.subCategoryName;
+      const query = { productSubCategory: subCategoryName };
+      const cursor = testProductsCollection.find(query);
+      const subCategory = await cursor.toArray();
+      res.send(subCategory);
+    });
   } finally {
   }
 }
-run().catch(console.log);
+run().catch((error) => console.log(error));
 
-const blogs = require("./data/blogs.json");
-
-app.get("/blogs", (req, res) => {
-  res.send(blogs);
+app.get("/", (req, res) => {
+  res.send("EVisa BackEnd!");
 });
 
-app.get("/", async (req, res) => {
-  res.send("Game Cheap Server");
+app.listen(port, () => {
+  console.log("server running");
 });
-
-app.listen(port, () => console.log(`Game Cheap is running on port: ${port}`));
