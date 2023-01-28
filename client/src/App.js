@@ -6,7 +6,7 @@ function App() {
   const Router = routes;
 
   return (
-    <div className="App">
+    <div>
       <RouterProvider router={Router}></RouterProvider>
     </div>
   );

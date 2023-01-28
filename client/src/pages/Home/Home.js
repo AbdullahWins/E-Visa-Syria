@@ -19,7 +19,7 @@ const Home = () => {
           <Link to="/" className="bg-sky-400 opacity-40 p-2">
             Get Information
           </Link>
-          <Link to="/" className="bg-red-700 opacity-80 py-4 px-2 text-5xl">
+          <Link to="/form" className="bg-red-700 opacity-80 py-4 px-2 text-5xl">
             Apply Now
           </Link>
         </div>
@@ -29,7 +29,7 @@ const Home = () => {
         </div>
         <div className="absolute bottom-0 w-full text-2xl">
           <div className="flex justify-around">
-            <Link to="/" className="bg-rose-900 p-4">
+            <Link to="/form" className="bg-rose-900 p-4">
               <p>#1 Apply</p>
             </Link>
             <Link to="/" className="bg-rose-600 p-4">
@@ -46,7 +46,7 @@ const Home = () => {
           <div>
             <h2 className="text-xl font-bold">Application</h2>
             <p>
-              <Link to="/">New Application</Link>
+              <Link to="/form">New Application</Link>
             </p>
           </div>
           <div>
