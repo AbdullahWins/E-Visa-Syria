@@ -4,6 +4,7 @@ import CheckOut from "../pages/CheckOut/CheckOut";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import ArrivalInformation from "../pages/Forms/FormPages/ArrivalInformation";
 import PersonalInformation from "../pages/Forms/FormPages/PersonalInformation";
+import Prerequisites from "../pages/Forms/FormPages/Prerequisites";
 import Forms from "../pages/Forms/Forms";
 import Home from "../pages/Home/Home";
 
@@ -27,6 +28,10 @@ export const routes = createBrowserRouter([
       {
         path: "/arrival",
         element: <ArrivalInformation></ArrivalInformation>,
+      },
+      {
+        path: "/prerequisites",
+        element: <Prerequisites></Prerequisites>,
       },
       {
         path: "/information",

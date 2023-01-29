@@ -21,7 +21,7 @@ const ArrivalInformation = () => {
     const newUserForm = { ...userForm, packageName, date };
     setUserForm(newUserForm);
     setTimeout(() => {
-      navigate("/information");
+      navigate("/prerequisites");
     }, 100);
   };
 
@@ -30,8 +30,10 @@ const ArrivalInformation = () => {
       <ul className="steps w-full my-4">
         <li className="step step-primary">Choice of Nationality</li>
         <li className="step step-primary">Arrival Information</li>
+        <li className="step">Prerequisites</li>
         <li className="step">Personal Information</li>
       </ul>
+      <hr />
       <section className="flex items-center justify-center">
         <form
           onChange={radioOnChange}
@@ -131,7 +133,7 @@ const ArrivalInformation = () => {
         <p className="flex items-center py-2">
           Selected date:
           <span className="text-green-400 text-2xl text-bold">
-            "{date.toLocaleDateString()}"
+            "{date?.toLocaleDateString()}"
           </span>
         </p>
         <div>
@@ -153,15 +155,15 @@ const ArrivalInformation = () => {
             headerFormat="DD, MM dd"
           />
         </div>
-        <hr />
-        <section className="p-6">
-          <button
-            onClick={handleSubmit}
-            className="btn submit bg-green-500 rounded-none border-none"
-          >
-            Next
-          </button>
-        </section>
+      </section>
+      <hr />
+      <section className="py-4 flex justify-center">
+        <button
+          onClick={handleSubmit}
+          className="btn submit bg-green-500 rounded-none border-none"
+        >
+          Next
+        </button>
       </section>
     </section>
   );
