@@ -32,7 +32,6 @@ const ChoiceOfNationality = () => {
       <ul className="steps w-full my-4">
         <li className="step step-primary">Choice of Nationality</li>
         <li className="step">Arrival Information</li>
-        <li className="step">Prerequisites</li>
         <li className="step">Personal Information</li>
       </ul>
       <hr />
