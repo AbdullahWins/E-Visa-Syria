@@ -18,7 +18,8 @@ const ArrivalInformation = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newUserForm = { ...userForm, packageName, date };
+    const arrivalDate = date?.toLocaleDateString();
+    const newUserForm = { ...userForm, packageName, arrivalDate };
     setUserForm(newUserForm);
     setTimeout(() => {
       navigate("/prerequisites");

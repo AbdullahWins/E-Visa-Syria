@@ -5,7 +5,9 @@ import { AuthContext } from "../../../contexts/AuthContext";
 
 const PersonalInformation = () => {
   const { userForm, setUserForm } = useContext(AuthContext);
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen1, setIsOpen1] = useState(false);
+  const [isOpen2, setIsOpen2] = useState(false);
+  const [isOpen3, setIsOpen3] = useState(false);
   const [dateOfBirth, setDateOfBirth] = useState(new Date());
   const [issueDate, setIssueDate] = useState(new Date());
   const [expiryDate, setExpiryDate] = useState(new Date());
@@ -13,7 +15,21 @@ const PersonalInformation = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newUserForm = { ...userForm, dateOfBirth, issueDate, expiryDate };
+    const birthDate = dateOfBirth?.toLocaleDateString();
+    const passportIssueDate = issueDate?.toLocaleDateString();
+    const passportExpiryDate = expiryDate?.toLocaleDateString();
+    const emailAddress = e.target?.emailAddress?.value;
+    const confirmEmail = e.target?.confirmEmail?.value;
+    const fullAddress = e.target?.fullAddress?.value;
+    const newUserForm = {
+      ...userForm,
+      birthDate,
+      passportIssueDate,
+      passportExpiryDate,
+      emailAddress,
+      confirmEmail,
+      fullAddress,
+    };
     setUserForm(newUserForm);
     setTimeout(() => {
       navigate("/payment");
@@ -58,22 +74,22 @@ const PersonalInformation = () => {
                 className="input input-bordered w-full max-w-md"
               />
             </div>
-            <div>
+            <div className="w-2/3">
               <p className="mt-2">
                 DATE OF BIRTH<span className="text-red-400"> *</span>
               </p>
               <button
                 className="btn bg-white btn-sm w-2/3 text-black rounded-none"
                 onClick={() => {
-                  setIsOpen(true);
+                  setIsOpen1(true);
                 }}
               >
                 {dateOfBirth?.toLocaleDateString()}
               </button>
               <DatePicker
-                isOpen={isOpen}
+                isOpen={isOpen1}
                 onChange={(date) => setDateOfBirth(date)}
-                onClose={() => setIsOpen(false)}
+                onClose={() => setIsOpen1(false)}
                 defaultValue={new Date(2022, 8, 8)}
                 minDate={new Date(2022, 10, 10)}
                 maxDate={new Date(2023, 0, 10)}
@@ -115,44 +131,44 @@ const PersonalInformation = () => {
                 className="input input-bordered w-full max-w-md"
               />
             </div>
-            <div>
+            <div className="w-2/3">
               <p className="mt-2">
                 PASSPORT ISSUE DATE<span className="text-red-400"> *</span>
               </p>
               <button
                 className="btn bg-white btn-sm w-2/3 text-black rounded-none"
                 onClick={() => {
-                  setIsOpen(true);
+                  setIsOpen2(true);
                 }}
               >
-                {dateOfBirth?.toLocaleDateString()}
+                {issueDate?.toLocaleDateString()}
               </button>
               <DatePicker
-                isOpen={isOpen}
+                isOpen={isOpen2}
                 onChange={(date) => setIssueDate(date)}
-                onClose={() => setIsOpen(false)}
+                onClose={() => setIsOpen2(false)}
                 defaultValue={new Date(2022, 8, 8)}
                 minDate={new Date(2022, 10, 10)}
                 maxDate={new Date(2023, 0, 10)}
                 headerFormat="DD, MM dd"
               />
             </div>
-            <div>
+            <div className="w-2/3">
               <p className="mt-2">
                 PASSPORT EXPIRY DATE<span className="text-red-400"> *</span>
               </p>
               <button
                 className="btn bg-white btn-sm w-2/3 text-black rounded-none"
                 onClick={() => {
-                  setIsOpen(true);
+                  setIsOpen3(true);
                 }}
               >
-                {dateOfBirth?.toLocaleDateString()}
+                {expiryDate?.toLocaleDateString()}
               </button>
               <DatePicker
-                isOpen={isOpen}
-                onChange={(date) => setDateOfBirth(date)}
-                onClose={() => setExpiryDate(false)}
+                isOpen={isOpen3}
+                onChange={(date) => setExpiryDate(date)}
+                onClose={() => setIsOpen3(false)}
                 defaultValue={new Date(2022, 8, 8)}
                 minDate={new Date(2022, 10, 10)}
                 maxDate={new Date(2023, 0, 10)}
@@ -160,6 +176,58 @@ const PersonalInformation = () => {
               />
             </div>
           </div>
+          <section className="py-4">
+            <h2 className="text-3xl text-bold">Contact Information</h2>
+            <hr />
+            <div className="flex flex-col mb-6">
+              <div className="flex justify-start items-end gap-6">
+                <div>
+                  <div className="form-control w-full max-w-xs">
+                    <label className="label">
+                      <p className="label-text">
+                        EMAIL FOR RECEIVE YOUR E-VISA
+                        <span className="text-red-400">*</span>
+                      </p>
+                    </label>
+                    <input
+                      type="email"
+                      name="emailAddress"
+                      required
+                      className="input input-bordered w-full max-w-md"
+                    />
+                    <label className="label">
+                      <p className="label-text font-bold">ENTER EMAIL</p>
+                    </label>
+                  </div>
+                </div>
+                <div>
+                  <div className="form-control w-full max-w-xs">
+                    <input
+                      type="email"
+                      name="confirmEmail"
+                      required
+                      className="input input-bordered w-full max-w-md"
+                    />
+                    <label className="label">
+                      <p className="label-text font-bold">CONFIRM EMAIL</p>
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <label className="label">
+                  <p className="label-text">
+                    ADDRESS <span className="text-red-400">*</span>
+                  </p>
+                </label>
+                <textarea
+                  name="fullAddress"
+                  required
+                  className="textarea textarea-bordered textarea-md w-full max-w-md"
+                ></textarea>
+              </div>
+            </div>
+          </section>
           <div className="text-center">
             <button
               onClick={handleSubmit}

@@ -3,6 +3,7 @@ import Main from "../layouts/Main";
 import CheckOut from "../pages/CheckOut/CheckOut";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
 import ArrivalInformation from "../pages/Forms/FormPages/ArrivalInformation";
+import Payment from "../pages/Forms/FormPages/Payment";
 import PersonalInformation from "../pages/Forms/FormPages/PersonalInformation";
 import Prerequisites from "../pages/Forms/FormPages/Prerequisites";
 import Forms from "../pages/Forms/Forms";
@@ -36,6 +37,10 @@ export const routes = createBrowserRouter([
       {
         path: "/information",
         element: <PersonalInformation></PersonalInformation>,
+      },
+      {
+        path: "/payment",
+        element: <Payment></Payment>,
       },
       {
         path: "/checkout",
