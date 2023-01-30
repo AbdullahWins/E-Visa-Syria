@@ -6,9 +6,9 @@ const Header = () => {
   return (
     <div className="navbar bg-zinc-800 text-white aligh-center justify-around">
       <Link to="/" className="normal-case text-xl">
-        <img src={evisalogo} alt="evisa logo" />
+        <img className="w-2/6" src={evisalogo} alt="evisa logo" />
         <div className="text-start">
-          <p className="text-4xl">Syrian Visa</p>
+          <p className="text-3xl">Syrian Visa</p>
           <p>Online Application System</p>
         </div>
       </Link>

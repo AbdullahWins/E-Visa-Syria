@@ -5,70 +5,57 @@ import bg2 from "../../assets/img/bg2.png";
 import bg3 from "../../assets/img/bg3.png";
 import bg4 from "../../assets/img/bg4.png";
 import { Link } from "react-router-dom";
+import Slider from "../../components/Slider/Slider";
+
+const images = [
+  bg,
+  bg2,
+  bg3,
+  bg4,
+  bg,
+  bg2,
+  bg3,
+  bg4,
+  bg,
+  bg2,
+  bg3,
+  bg4,
+  bg,
+  bg2,
+  bg3,
+  bg4,
+  bg,
+  bg2,
+  bg3,
+  bg4,
+  bg,
+  bg2,
+  bg3,
+  bg4,
+  bg,
+  bg2,
+  bg3,
+  bg4,
+  bg,
+  bg2,
+  bg3,
+  bg4,
+  bg,
+  bg2,
+  bg3,
+  bg4,
+  bg,
+  bg2,
+  bg3,
+  bg4,
+];
 
 const Home = () => {
   return (
     <div className="text-white">
       <section className="relative">
         <section>
-          <div className="carousel w-full">
-            <div id="slide1" className="carousel-item relative w-full">
-              <img
-                src={bg}
-                className="w-full" alt=""
-              />
-              <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                <a href="#slide4" className="btn btn-circle">
-                  ❮
-                </a>
-                <a href="#slide2" className="btn btn-circle">
-                  ❯
-                </a>
-              </div>
-            </div>
-            <div id="slide2" className="carousel-item relative w-full">
-              <img
-                src={bg2}
-                className="w-full" alt=""
-              />
-              <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                <a href="#slide1" className="btn btn-circle">
-                  ❮
-                </a>
-                <a href="#slide3" className="btn btn-circle">
-                  ❯
-                </a>
-              </div>
-            </div>
-            <div id="slide3" className="carousel-item relative w-full">
-              <img
-                src={bg3}
-                className="w-full" alt=""
-              />
-              <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                <a href="#slide2" className="btn btn-circle">
-                  ❮
-                </a>
-                <a href="#slide4" className="btn btn-circle">
-                  ❯
-                </a>
-              </div>
-            </div>
-            <div id="slide4" className="carousel-item relative w-full">
-              <img
-                src={bg4}
-                className="w-full" alt=""
-              />
-              <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                <a href="#slide3" className="btn btn-circle">
-                  ❮
-                </a>
-                <a href="#slide1" className="btn btn-circle">
-                  ❯
-                </a>
-              </div>
-            </div>
-          </div>
+          <Slider images={images}></Slider>
         </section>
         <div className="absolute top-2 left-40 text-4xl text-start flex flex-col ml-2">
           <Link to="/" className="bg-sky-400 opacity-40 p-2">
